@@ -3,7 +3,7 @@
     class="grid grid-rows-4 grid-flow-col place-items-center text-center px-4"
   >
     <div class="font-light">
-      <label>{{ weatherForecast.address }}</label>
+      <label>{{ weatherDateTime.newCurrentForecast.address }}</label>
       <br />
       <label>{{ weatherForecast.timezone }}</label>
     </div>
@@ -100,19 +100,22 @@
 
 <script>
 import { visualCrossingApi } from "../../Shared/visualCrossingApi";
+import { weatherDateTime } from "../../Shared/weatherDateTime";
 
 export default {
   data() {
     return {
+      weatherDateTime,
       weatherForecast: [],
       weatherCurrentForecast: [],
     };
   },
-  mounted() {
-    visualCrossingApi().then((response) => {
-      this.weatherForecast = response.data;
-      this.weatherCurrentForecast = response.data.currentConditions;
-    });
-  },
+  // mounted() {
+  //   visualCrossingApi().then((response) => {
+  //     this.weatherDateTime.newCurrentForecast = response.data;
+  //     // this.weatherForecast = response.data;
+  //     // this.weatherCurrentForecast = response.data.currentConditions;
+  //   });
+  // },
 };
 </script>

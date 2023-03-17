@@ -32,7 +32,6 @@
 
 <script>
 import { visualCrossingApi } from "../../Shared/visualCrossingApi";
-
 import { weatherDateTime } from "../../Shared/weatherDateTime";
 
 export default {

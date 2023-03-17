@@ -15,7 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Users/Index', [
+    return Inertia::render('Weather/Index');
+})->name('weather');
+
+Route::get('/users', function () {
+    sleep(2);
+    return Inertia::render('Users', [
         'name' => 'Jeff',
+        'techstacks' => [
+            'Laravel', 'Vue', 'PHP', 'Python', 'MySQL'
+        ],
     ]);
-});
+})->name('users');
+
+Route::post('/logout', function () {
+    dd("Logout diedump");
+})->name('logout');

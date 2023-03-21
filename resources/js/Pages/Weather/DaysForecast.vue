@@ -1,17 +1,27 @@
 <template>
-  <section>
-    {{ weatherAPIResponse }}
-    <label class="text-3xl">Daily</label>
+  <section v-if="weatherForecast.newWeatherDailyForecast.length > 0">
+    <div class="flex justify-between">
+      <label class="text-3xl">Daily</label>
+      <!-- <label class="text-3xl">Daily</label> -->
+    </div>
+
     <div class="grid lg:grid-cols-10 grid-cols-1 pt-2 gap-4 overflow-x-auto">
       <a
         href="#"
         class="px-6 pt-6 bg-base-200 hover:bg-sky-400"
-        :class="'focus:bg-sky-400'"
-        v-for="(weatherDays, weatherDaysId) in weatherDaysForecast.slice(0, 10)"
+        v-for="(
+          weatherDays, weatherDaysId
+        ) in weatherForecast.newWeatherDailyForecast.slice(0, 10)"
+        :class="{
+          'bg-sky-400': weatherDaysId === dayClickedId,
+        }"
         :key="weatherDaysId"
         @click="
-          weatherDateTime.updateHourlyForecast(weatherDays.datetime);
-          clickButton(weatherDaysId);
+          weatherForecast.updateWeatherHourlyForecast(
+            weatherForecast.newWeatherCurrentForecast.address,
+            weatherDays.datetime
+          );
+          dayClicked(weatherDaysId);
         "
       >
         <div class="grid grid-rows-4 grid-flow-col">
@@ -28,7 +38,7 @@
               "
             />
           </div>
-          <div class="text-3xl">{{ weatherDays.temp.toFixed(1) }}°</div>
+          <div class="text-3xl">{{ weatherDays.temp.toFixed(1) }}°C</div>
           <div class="text-xs">
             {{ weatherDays.conditions }}
           </div>
@@ -40,26 +50,19 @@
 </template>
 
 <script>
-import { visualCrossingApi } from "../../Shared/visualCrossingApi";
-import { weatherDateTime } from "../../Shared/weatherDateTime";
+import { weatherForecast } from "../../Shared/weatherForecast";
 
 export default {
   data() {
     return {
-      weatherDaysForecast: [],
-      weatherAPIResponse: null,
-      weatherDateTime,
-      day: null,
+      weatherForecast,
+      location: "",
+      dayClickedId: "",
     };
   },
-  mounted() {
-    visualCrossingApi().then((response) => {
-      this.weatherDaysForecast = response.data.days;
-    });
-  },
   methods: {
-    clickButton(daysId) {
-      // console.log(daysId);
+    dayClicked(daysId) {
+      this.dayClickedId = daysId;
     },
     weatherDayofWeek(weatherDateTime) {
       const daysWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -70,3 +73,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>

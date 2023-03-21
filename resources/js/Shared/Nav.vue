@@ -37,6 +37,13 @@
           </label>
         </div>
         <div class="flex-1 px-2 mx-2 normal-case text-xl">Tempestas</div>
+        <label
+          class="flex-none btn mr-2 text-center"
+          for="search-modal"
+          v-if="$page.component == 'Weather/Index'"
+          >Search Location</label
+        >
+        <div class="flex-1"></div>
         <div class="flex-none hidden sm:block">
           <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
@@ -78,8 +85,8 @@
           </div>
           <div class="divider"></div>
         </div>
-        <li><Link :href="route('weather')">Weather</Link></li>
-        <li><Link :href="route('users')">Users</Link></li>
+        <li><Link :href="route('weather.index')">Weather</Link></li>
+        <li><Link :href="route('locations.index')">Locations</Link></li>
         <li>
           <Link :href="route('logout')" method="POST" as="button">Logout</Link>
         </li>

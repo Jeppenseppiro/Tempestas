@@ -6,19 +6,22 @@
         layer-type="base"
         name="OpenStreetMap"
       ></l-tile-layer>
+
+      <l-marker :lat-lng="coordinates"></l-marker>
     </l-map>
   </div>
 </template>
 
 <script>
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
+import { LMap, LTileLayer, LMarker } from "@vue-leaflet/vue-leaflet";
 import { weatherForecast } from "../../../../Shared/weatherForecast";
 
 export default {
   components: {
     LMap,
     LTileLayer,
+    LMarker,
   },
   data() {
     return {

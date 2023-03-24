@@ -19,7 +19,7 @@ Route::get('/', function () {
     return Inertia::render('Weather/Index');
 })->name('weather.index');
 
-Route::get('locations', [LocationsController::class, 'index'])->name('locations.index');
+Route::get('/locations', [LocationsController::class, 'index'])->name('locations.index');
 
 // Route::get('/users', function () {
 //     sleep(2);

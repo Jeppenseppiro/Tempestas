@@ -8,13 +8,11 @@ const weatherForecast = reactive({
   newWeatherHourlyForecast: [],
 
   weatherHourlyForecastInformation: {},
-
   errorWeatherForecast: {},
 
   updateWeatherForecast(location, datetime) {
     visualCrossingApi(location, datetime)
       .then((response) => {
-        console.log(response.data);
         this.newWeatherCurrentForecast = response.data;
         this.newWeatherCurrentConditionForecast =
           response.data.currentConditions;
@@ -46,7 +44,6 @@ const weatherForecast = reactive({
   getWeatherHourlyForecastInformation(hourlyForecastId) {
     this.weatherHourlyForecastInformation =
       this.newWeatherHourlyForecast[hourlyForecastId];
-    console.log(this.weatherHourlyForecastInformation);
   },
 });
 

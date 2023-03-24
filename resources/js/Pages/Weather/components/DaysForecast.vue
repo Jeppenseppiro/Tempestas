@@ -5,10 +5,10 @@
       <!-- <label class="text-3xl">Daily</label> -->
     </div>
 
-    <div class="grid lg:grid-cols-10 grid-cols-1 pt-2 gap-4 overflow-x-auto">
+    <div class="grid lg:grid-cols-10 grid-cols-1 pt-2 gap-2 overflow-y-auto">
       <a
         href="#"
-        class="px-6 pt-6 bg-base-200 hover:bg-sky-400"
+        class="px-6 pt-6 hover:bg-sky-400 border"
         v-for="(
           weatherDays, weatherDaysId
         ) in weatherForecast.newWeatherDailyForecast.slice(0, 10)"
@@ -25,17 +25,15 @@
         "
       >
         <div class="grid grid-rows-4 grid-flow-col">
-          <div class="font-light">
+          <div class="font-light text-lg">
             {{ weatherDayofWeek(weatherDays.datetime) }}
-            {{ weatherDays.datetime.substring(8) }}
+            <label class="font-semibold">{{
+              weatherDays.datetime.substring(8)
+            }}</label>
           </div>
-          <div class="w-12 -mt-3 my-2 -ml-1 rounded">
+          <div class="w-14 -mt-3 my-2 -ml-1 rounded">
             <img
-              :src="
-                'https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/1st%20Set%20-%20Color/' +
-                weatherDays.icon +
-                '.png'
-              "
+              :src="`https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/1st%20Set%20-%20Color/${weatherDays.icon}.png`"
             />
           </div>
           <div class="text-3xl">{{ weatherDays.temp.toFixed(1) }}°C</div>
@@ -50,7 +48,7 @@
 </template>
 
 <script>
-import { weatherForecast } from "../../Shared/weatherForecast";
+import { weatherForecast } from "../../../Shared/weatherForecast";
 
 export default {
   data() {

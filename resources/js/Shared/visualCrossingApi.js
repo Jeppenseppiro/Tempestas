@@ -13,7 +13,7 @@ const visualCrossingApi = async (location, datetime) => {
       location +
       "/" +
       datetime +
-      "?unitGroup=metric&key=UBD2MGG36X9M4XB6F3CQ5TN2X&contentType=json&iconSet=icons2"
+      "?unitGroup=metric&key=MJLKCUK68DZ7BBZZ3QVH7S6K7&contentType=json"
   );
   return axiosGet;
 };

@@ -1,9 +1,11 @@
 <template>
-  <div class="grid lg:grid-cols-2 gap-4">
+  <div
+    class="grid lg:grid-cols-2 gap-4"
+    v-if="Object.keys(weatherForecast.newWeatherCurrentForecast).length > 0"
+  >
     <div class="">
       <div
         class="grid grid-rows-4 grid-flow-col place-items-center text-center px-4 text-lg"
-        v-if="Object.keys(weatherForecast.newWeatherCurrentForecast).length > 0"
       >
         <div class="font-light">
           <label>{{
@@ -19,7 +21,7 @@
           <div class="flex flex-auto items-center">
             <div class="w-16">
               <img
-                :src="`https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/SVG/1st%20Set%20-%20Color/${weatherForecast.newWeatherCurrentConditionForecast.icon}.svg`"
+                :src="`resources/VisualCrossing/PNG/1st Set - Color/${weatherForecast.newWeatherCurrentConditionForecast.icon}.png`"
               />
             </div>
             <label class="font-medium text-7xl"
@@ -134,7 +136,9 @@
         </div>
       </div>
     </div>
-    <div class="h-full w-full">
+    <div
+      class="h-full w-full sm:h-80 z-0 border-double border-4 border-sky-300"
+    >
       <Map />
     </div>
   </div>

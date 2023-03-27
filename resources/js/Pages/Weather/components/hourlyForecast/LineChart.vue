@@ -25,7 +25,7 @@
               <div class="w-16 rounded">
                 <img
                   :src="
-                    `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/1st%20Set%20-%20Color/${weatherForecast.weatherHourlyForecastInformation.icon}.png`
+                    `resources/VisualCrossing/PNG/1st Set - Color/${weatherForecast.weatherHourlyForecastInformation.icon}.png`
                   "
                 />
               </div>
@@ -181,7 +181,7 @@ export default {
       ) {
         // weatherForecast.newWeatherHourlyForecast[i].icon
         pointImage[i] = new Image(45, 45);
-        pointImage[i].src = `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/1st%20Set%20-%20Color/${weatherForecast.newWeatherHourlyForecast[i].icon}.png`;
+        pointImage[i].src = `resources/VisualCrossing/PNG/1st Set - Color/${weatherForecast.newWeatherHourlyForecast[i].icon}.png`;
 
         hourlyDateTime.push(
           weatherForecast.newWeatherHourlyForecast[i].datetime.substring(0, 5)

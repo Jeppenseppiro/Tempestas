@@ -28,17 +28,15 @@ const weatherForecast = reactive({
       });
   },
 
-  updateWeatherHourlyForecast(location, datetime) {
-    visualCrossingApi(location, datetime)
-      .then((response) => {
-        this.newWeatherHourlyForecast = [];
-        for (let i = 0; i < response.data.days[0].hours.length; i++) {
-          this.newWeatherHourlyForecast.push(response.data.days[0].hours[i]);
-        }
-      })
-      .catch((error) => {
-        this.errorWeatherForecast = error.response;
-      });
+  updateWeatherHourlyForecast(weatherDaysId) {
+    this.newWeatherHourlyForecast = [];
+    for (let weatherHourlyForecast in this.newWeatherDailyForecast[
+      weatherDaysId
+    ].hours) {
+      this.newWeatherHourlyForecast.push(
+        this.newWeatherDailyForecast[weatherDaysId].hours[weatherHourlyForecast]
+      );
+    }
   },
 
   getWeatherHourlyForecastInformation(hourlyForecastId) {

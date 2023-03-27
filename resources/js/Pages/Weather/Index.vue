@@ -1,15 +1,33 @@
 <template>
   <!-- <Nav> -->
   <div class="container mx-auto bg-base-800">
-    <div v-if="weatherAPIStatus != 429" class="grid grid-cols-12 gap-4">
-      <div class="col-span-12">
-        <CurrentDayForecast />
+    <div v-if="weatherAPIStatus != 429">
+      <div
+        class="flex h-screen"
+        v-if="
+          !Object.keys(weatherForecast.newWeatherCurrentForecast).length > 0
+        "
+      >
+        <div class="m-auto">
+          <label
+            class="btn font-bold text-xl"
+            for="search-modal"
+            v-if="$page.component == 'Weather/Index'"
+            >Search Location</label
+          >
+        </div>
       </div>
-      <div class="col-span-12 px-6">
-        <DaysForecast />
-      </div>
-      <div class="col-span-12 px-6">
-        <HourlyForecast />
+
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-12">
+          <CurrentDayForecast />
+        </div>
+        <div class="col-span-12 px-6">
+          <DaysForecast />
+        </div>
+        <div class="col-span-12 px-6">
+          <HourlyForecast />
+        </div>
       </div>
     </div>
 
@@ -27,14 +45,27 @@
     <div class="modal">
       <div class="modal-box w-11/12 max-w-5xl">
         <h3 class="font-bold text-lg">Search Location</h3>
-        <p class="py-4">
+        <div class="flex items-center border-b border-teal-500 py-2">
           <input
+            class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             type="text"
-            placeholder="Type here"
-            class="input input-bordered input-info w-full max-w"
+            placeholder="Type location here"
             v-model="searchLocations"
           />
-        </p>
+          <input
+            type="date"
+            class="btn btn-sm glassbtn btn-outline btn-info"
+            v-model="datepickerFrom"
+            :max="datepickerTo"
+          />
+          <label class="text-2xl">&nbsp;-&nbsp;</label>
+          <input
+            type="date"
+            class="btn btn-sm glassbtn btn-outline btn-info"
+            v-model="datepickerTo"
+            :min="datepickerFrom"
+          />
+        </div>
         <label v-if="weatherForecast.errorWeatherForecast.status == 400">{{
           weatherForecast.errorWeatherForecast.data
         }}</label>
@@ -42,10 +73,11 @@
         <div class="modal-action">
           <label
             class="btn btn-success"
+            for="search-modal"
             @click="
               weatherForecast.updateWeatherForecast(
                 searchLocations,
-                defaultDateTime
+                weatherDateTime
               )
             "
             >Search</label
@@ -66,22 +98,38 @@ import DaysForecast from "./components/DaysForecast.vue";
 import HourlyForecast from "./components/HourlyForecast.vue";
 
 export default {
-  props: {},
   layout: Nav,
+  props: {},
+  components: {
+    Nav,
+    CurrentDayForecast,
+    DaysForecast,
+    HourlyForecast,
+  },
   data() {
     return {
       weatherAPIStatus: null,
       weatherAPIData: null,
       weatherForecast,
       searchLocations: "",
-      defaultDateTime: "",
+      datepickerFrom: "",
+      datepickerTo: "",
     };
   },
-  components: {
-    Nav,
-    CurrentDayForecast,
-    DaysForecast,
-    HourlyForecast,
+  computed: {
+    weatherDateTime() {
+      let weatherDateTime;
+      if (this.datepickerFrom != "" && this.datepickerTo != "") {
+        weatherDateTime = `${this.datepickerFrom}/${this.datepickerTo}`;
+      } else if (this.datepickerFrom != "" && this.datepickerTo == "") {
+        weatherDateTime = `${this.datepickerFrom}`;
+      } else if (this.datepickerFrom == "" && this.datepickerTo != "") {
+        weatherDateTime = `${this.datepickerTo}`;
+      } else {
+        weatherDateTime = "";
+      }
+      return weatherDateTime;
+    },
   },
 };
 </script>

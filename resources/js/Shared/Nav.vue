@@ -40,7 +40,10 @@
         <label
           class="flex-none btn mr-2 text-center"
           for="search-modal"
-          v-if="$page.component == 'Weather/Index'"
+          v-if="
+            $page.component == 'Weather/Index' &&
+            Object.keys(weatherForecast.newWeatherCurrentForecast).length > 0
+          "
           >Search Location</label
         >
         <div class="flex-1"></div>
@@ -97,9 +100,15 @@
 
 <script>
 import { Link } from "@inertiajs/vue3";
+import { weatherForecast } from "../Shared/weatherForecast";
 export default {
   components: {
     Link,
+  },
+  data() {
+    return {
+      weatherForecast,
+    };
   },
 };
 </script>

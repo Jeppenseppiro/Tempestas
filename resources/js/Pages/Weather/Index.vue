@@ -44,7 +44,6 @@
     <input type="checkbox" id="search-modal" class="modal-toggle" />
     <div class="modal">
       <div class="modal-box w-11/12 max-w-5xl">
-        <h3 class="font-bold text-lg">Search Location</h3>
         <div class="flex items-center border-b border-teal-500 py-2">
           <input
             class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
@@ -52,20 +51,23 @@
             placeholder="Type location here"
             v-model="searchLocations"
           />
+        </div>
+        <div class="text-center items-center mt-6">
           <input
             type="date"
-            class="btn btn-sm glassbtn btn-outline btn-info"
+            class="btn lg:btn-md btn-xs glassbtn btn-outline btn-info"
             v-model="datepickerFrom"
             :max="datepickerTo"
           />
           <label class="text-2xl">&nbsp;-&nbsp;</label>
           <input
             type="date"
-            class="btn btn-sm glassbtn btn-outline btn-info"
+            class="btn lg:btn-md btn-xs glassbtn btn-outline btn-info"
             v-model="datepickerTo"
             :min="datepickerFrom"
           />
         </div>
+
         <label v-if="weatherForecast.errorWeatherForecast.status == 400">{{
           weatherForecast.errorWeatherForecast.data
         }}</label>

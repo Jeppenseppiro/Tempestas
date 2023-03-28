@@ -21,7 +21,7 @@
     </div>
 
     <div
-      class="grid xl:grid-cols-10 xl:h-64 grid-cols-5 gap-2 overflow-y-auto h-60"
+      class="grid xl:grid-cols-10 lg:grid-cols-5 xl:h-64 grid-cols-3 gap-2 overflow-y-auto h-60"
     >
       <a
         href="#"

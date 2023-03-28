@@ -137,7 +137,7 @@
       </div>
     </div>
     <div
-      class="h-full w-full sm:h-80 z-0 border-double border-4 border-sky-300"
+      class="h-full w-full sm:h-80 h-64 z-0 border-double border-4 border-sky-300"
     >
       <Map />
     </div>

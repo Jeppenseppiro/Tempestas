@@ -7,6 +7,8 @@ const weatherForecast = reactive({
   newWeatherDailyForecast: [],
   newWeatherHourlyForecast: [],
 
+  newMarker_WeatherStations: [],
+
   weatherHourlyForecastInformation: {},
   errorWeatherForecast: {},
 
@@ -21,6 +23,7 @@ const weatherForecast = reactive({
         this.newWeatherHourlyForecast = [];
         for (let i = 0; i < response.data.days.length; i++) {
           this.newWeatherDailyForecast.push(response.data.days[i]);
+          this.newMarker_WeatherStations.push(response.data.stations);
         }
       })
       .catch((error) => {

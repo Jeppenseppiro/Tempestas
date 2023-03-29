@@ -1,6 +1,8 @@
 <template>
   <div v-if="weatherForecast.newWeatherHourlyForecast.length > 0">
-    <label class="text-3xl">Hourly</label>
+    <div class="flex justify-between items-center">
+      <label class="text-3xl">Hourly</label>
+    </div>
 
     <!-- <div class="flex w-full -mx-1 mt-2 overflow-x-auto">
       <a

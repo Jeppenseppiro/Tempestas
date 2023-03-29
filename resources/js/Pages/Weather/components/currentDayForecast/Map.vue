@@ -82,7 +82,7 @@ import { weatherForecast } from "../../../../Shared/weatherForecast";
 const tileProviders = [
   {
     name: "OpenStreetMap",
-    visible: false,
+    visible: true,
     attribution:
       '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -96,7 +96,7 @@ const tileProviders = [
   },
   {
     name: "Carto",
-    visible: true,
+    visible: false,
     url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -123,9 +123,6 @@ export default {
       tileProviders: tileProviders,
       bounds: [],
     };
-  },
-  mounted() {
-    console.log(this.$refs.map);
   },
   computed: {
     markers() {

@@ -32,7 +32,8 @@ Route::get('/locations', [LocationsController::class, 'index'])->name('locations
 // })->name('users');
 
 Route::post('/logout', function () {
-    dd("Logout diedump");
+    
+    dd(phpversion());
 })->name('logout');
 
 

@@ -21,15 +21,15 @@ Route::get('/', function () {
 
 Route::get('/locations', [LocationsController::class, 'index'])->name('locations.index');
 
-// Route::get('/users', function () {
-//     sleep(2);
-//     return Inertia::render('Users', [
-//         'name' => 'Jeff',
-//         'techstacks' => [
-//             'Laravel', 'Vue', 'PHP', 'Python', 'MySQL'
-//         ],
-//     ]);
-// })->name('users');
+Route::get('/users', function () {
+    sleep(2);
+    return Inertia::render('Users', [
+        'name' => 'Jeff',
+        'techstacks' => [
+            'Laravel', 'Vue', 'PHP', 'Python', 'MySQL'
+        ],
+    ]);
+})->name('users.index');
 
 Route::post('/logout', function () {
     

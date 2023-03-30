@@ -109,6 +109,7 @@
           </ul>
         </li>
         <li><Link :href="route('locations.index')">Locations</Link></li>
+        <li><Link :href="route('users.index')">Users</Link></li>
         <li>
           <Link :href="route('logout')" method="POST" as="button">Logout</Link>
         </li>

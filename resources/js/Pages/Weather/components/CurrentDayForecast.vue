@@ -21,7 +21,7 @@
           <div class="flex flex-auto items-center">
             <div class="w-16">
               <img
-                :src="`resources/VisualCrossing/PNG/1st Set - Color/${weatherForecast.newWeatherCurrentConditionForecast.icon}.png`"
+                :src="`resources/VisualCrossing/PNG/2nd Set - Color/${weatherForecast.newWeatherCurrentConditionForecast.icon}.png`"
               />
             </div>
             <label class="font-medium text-7xl"
@@ -137,7 +137,7 @@
       </div>
     </div>
     <div
-      class="h-full w-full sm:h-80 h-64 z-0 border-double border-4 border-sky-300"
+      class="sm:h-80 lg:mx-0 mx-4 h-64 z-0 border-double border-4 border-sky-300"
     >
       <Map />
     </div>

@@ -9,10 +9,10 @@
   <!-- Hourly Modal Details -->
   <div class="modal" id="hourlyDetail">
     <div class="modal-box">
-      <h3 class="font-bold text-2xl">{{ weatherForecast.weatherHourlyForecastInformation.datetime }}</h3>
+      <h3 class="font-bold text-2xl text-center">{{ weatherForecast.weatherHourlyForecastInformation.datetime }}</h3>
       <p class="py-4">
         <div
-          class="grid grid-rows-4 grid-flow-col place-items-center text-center px-4"
+          class="grid grid-rows-4 grid-flow-col place-items-center text-center px-4 text-lg"
         >
           <div class="font-light">
             <label>{{ weatherForecast.newWeatherCurrentForecast.resolvedAddress }}</label>
@@ -22,14 +22,12 @@
 
           <div>
             <div class="flex flex-auto items-center">
-              <div class="w-16 rounded">
+              <div class="w-16">
                 <img
-                  :src="
-                    `resources/VisualCrossing/PNG/1st Set - Color/${weatherForecast.weatherHourlyForecastInformation.icon}.png`
-                  "
+                  :src="`resources/VisualCrossing/PNG/2nd Set - Color/${weatherForecast.weatherHourlyForecastInformation.icon}.png`"
                 />
               </div>
-              <label class="font-medium text-6xl"
+              <label class="font-medium text-7xl"
                 >&nbsp;{{
                   weatherForecast.weatherHourlyForecastInformation.temp
                 }}°C</label
@@ -38,32 +36,46 @@
           </div>
 
           <div>
-            <label class="font-medium text-xl"
+            <label class="font-medium text-2xl"
               >&nbsp;{{
                 weatherForecast.weatherHourlyForecastInformation.conditions
               }}</label
             >
+            <br />
+            <!-- <p class="text-sm">
+              Updated as of:
+              <label class="font-medium font"
+                >&nbsp;{{
+                  weatherForecast.newWeatherCurrentConditionForecast.datetime
+                }}</label
+              >
+            </p> -->
           </div>
 
           <div>
-            <div class="flex text-base">
-              <div class="grid px-4 flex-grow card bg-base-300 place-items-center">
+            <div class="flex text-xs">
+              <div
+                class="grid px-4 flex-grow card bg-base-300 place-items-center"
+              >
                 <p class="font-light">
                   Feels Like:
                   <label class="font-medium"
                     >{{
-                      weatherForecast.weatherHourlyForecastInformation.feelslike
+                      weatherForecast.newWeatherCurrentConditionForecast
+                        .feelslike
                     }}°</label
                   >
                 </p>
               </div>
               <div class="divider divider-horizontal"></div>
-              <div class="grid px-4 flex-grow card bg-base-300 place-items-center">
+              <div
+                class="grid px-4 flex-grow card bg-base-300 place-items-center"
+              >
                 <p class="font-light">
                   Wind:
                   <label class="font-medium"
                     >{{
-                      weatherForecast.weatherHourlyForecastInformation.windspeed
+                      weatherForecast.newWeatherCurrentConditionForecast.windspeed
                     }}
                     mph</label
                   >
@@ -71,48 +83,56 @@
               </div>
             </div>
 
-            <div class="flex text-base mt-3">
-              <div class="grid px-4 flex-grow card bg-base-300 place-items-center">
+            <div class="flex pt-2 text-xs">
+              <div
+                class="grid px-4 flex-grow card bg-base-300 place-items-center"
+              >
                 <p class="font-light">
                   Visibility:
                   <label class="font-medium"
                     >{{
-                      weatherForecast.weatherHourlyForecastInformation.visibility
-                    }}mi</label
+                      weatherForecast.newWeatherCurrentConditionForecast
+                        .visibility
+                    }}
+                    mi</label
                   >
                 </p>
               </div>
               <div class="divider divider-horizontal"></div>
-              <div class="grid px-4 flex-grow card bg-base-300 place-items-center">
+              <div
+                class="grid px-4 flex-grow card bg-base-300 place-items-center"
+              >
                 <p class="font-light">
                   UV Index:
-                  <label class="font-medium"
-                    >{{
-                      weatherForecast.weatherHourlyForecastInformation.uvindex
-                    }}</label
-                  >
+                  <label class="font-medium">{{
+                    weatherForecast.newWeatherCurrentConditionForecast.uvindex
+                  }}</label>
                 </p>
               </div>
             </div>
 
-            <div class="flex text-base mt-3">
-              <div class="grid px-4 flex-grow card bg-base-300 place-items-center">
+            <div class="flex pt-2 text-xs">
+              <div
+                class="grid px-4 flex-grow card bg-base-300 place-items-center"
+              >
                 <p class="font-light">
                   Humidity:
                   <label class="font-medium"
                     >{{
-                      weatherForecast.weatherHourlyForecastInformation.humidity
+                      weatherForecast.newWeatherCurrentConditionForecast.humidity
                     }}%</label
                   >
                 </p>
               </div>
               <div class="divider divider-horizontal"></div>
-              <div class="grid px-4 flex-grow card bg-base-300 place-items-center">
+              <div
+                class="grid px-4 flex-grow card bg-base-300 place-items-center"
+              >
                 <p class="font-light">
                   Dew Point:
                   <label class="font-medium"
                     >{{
-                      weatherForecast.weatherHourlyForecastInformation.dew
+                      weatherForecast.newWeatherCurrentConditionForecast.dew
                     }}°</label
                   >
                 </p>
@@ -165,7 +185,7 @@ export default {
   computed: {
     chartStyle() {
       return {
-        height: "20%",
+        height: "100%",
         width: "100%",
         position: "relative",
       };
@@ -181,7 +201,7 @@ export default {
       ) {
         // weatherForecast.newWeatherHourlyForecast[i].icon
         pointImage[i] = new Image(45, 45);
-        pointImage[i].src = `resources/VisualCrossing/PNG/1st Set - Color/${weatherForecast.newWeatherHourlyForecast[i].icon}.png`;
+        pointImage[i].src = `resources/VisualCrossing/PNG/2nd Set - Color/${weatherForecast.newWeatherHourlyForecast[i].icon}.png`;
 
         hourlyDateTime.push(
           weatherForecast.newWeatherHourlyForecast[i].datetime.substring(0, 5)
@@ -190,7 +210,7 @@ export default {
       }
 
       return {
-        labels: hourlyDateTime,
+        labels: hourlyTemp,
         datasets: [
           {
             label: "Temperature",
@@ -224,6 +244,7 @@ export default {
             pointHoverRadius: 20,
             pointStyle: pointImage,
             data: hourlyTemp,
+            xAxisID: 'temperature'
           },
         ],
       };
@@ -237,9 +258,22 @@ export default {
           },
         },
         scales: {
-          y: {
-            display: true,
+          x:{
+            ticks: {
+              // Include a dollar sign in the ticks
+              callback: function(value, index, ticks) {
+                return value + ":00";
+              }
+            },
           },
+          y: {
+            beginAtZero: true,
+            display: false,
+            
+          },
+          temperature: {
+            position: 'top',
+          }
         },
         onClick: function (evt, array) {
           if (array.length != 0) {

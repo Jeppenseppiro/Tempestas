@@ -3,10 +3,14 @@
   "functions": {
     "api/index.php": { "runtime": "vercel-php@0.6.0" }
   },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
+    }
+  ],
   "headers": [
     {
-      "source": "/(.*)",
-      "destination": "/api/index.php",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },

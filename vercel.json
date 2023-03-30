@@ -6,7 +6,7 @@
   "headers": [
     {
       "source": "/(.*)",
-      "dest": "/api/index.php",
+      "destination": "/api/index.php",
       "headers": [
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },

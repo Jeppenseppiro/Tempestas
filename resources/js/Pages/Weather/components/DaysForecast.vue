@@ -21,7 +21,7 @@
     </div>
 
     <div
-      class="grid xl:grid-cols-10 lg:grid-cols-5 xl:h-64 grid-cols-3 gap-2 overflow-y-auto h-60"
+      class="grid xl:grid-cols-10 lg:grid-cols-5 sm:grid-cols-3 xl:h-64 grid-cols-2 gap-2 overflow-y-auto h-60"
     >
       <a
         href="#"
@@ -51,7 +51,7 @@
           </div>
           <div class="w-14 -mt-3 my-2 -ml-1 rounded">
             <img
-              :src="`resources/VisualCrossing/PNG/1st Set - Color/${weatherDays.icon}.png`"
+              :src="`resources/VisualCrossing/PNG/2nd Set - Color/${weatherDays.icon}.png`"
             />
           </div>
           <div class="text-3xl">{{ weatherDays.temp.toFixed(1) }}°C</div>

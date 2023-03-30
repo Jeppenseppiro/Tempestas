@@ -44,48 +44,79 @@
     <input type="checkbox" id="search-modal" class="modal-toggle" />
     <div class="modal">
       <div class="modal-box w-11/12 max-w-5xl">
-        <div class="flex items-center border-b border-teal-500 py-2">
-          <input
-            class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-            type="text"
-            placeholder="Type location here"
-            v-model="searchLocations"
-          />
+        <label
+          for="search-modal"
+          class="btn btn-info btn-sm float-right ml-2 mb-2 px-4 font-bold text-xl hover:btn-warning"
+          >X</label
+        >
+
+        <div class="form-control w-full">
+          <div class="input-group">
+            <input
+              type="text"
+              placeholder="Search location"
+              class="input input-bordered w-full"
+              v-model="searchLocations"
+              @keyup.enter="
+                weatherForecast.updateWeatherForecast(
+                  searchLocations,
+                  weatherDateTime
+                )
+              "
+            />
+            <button
+              class="btn btn-square hover:btn-success"
+              for="search-modal"
+              @click="
+                weatherForecast.updateWeatherForecast(
+                  searchLocations,
+                  weatherDateTime
+                )
+              "
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </div>
+          <label class="label">
+            <span
+              class="label-text text-red-600"
+              v-if="weatherForecast.errorWeatherForecast.status == 400"
+              >{{ weatherForecast.errorWeatherForecast.data }}</span
+            >
+            <span class="label-text-alt"> </span>
+          </label>
         </div>
-        <div class="text-center items-center mt-6">
+        <div class="text-center items-center">
           <input
             type="date"
-            class="btn lg:btn-md btn-xs glassbtn btn-outline btn-info"
+            class="btn lg:btn-md btn-xs glassbtn btn-outline btn-success"
             v-model="datepickerFrom"
             :max="datepickerTo"
           />
           <label class="text-2xl">&nbsp;-&nbsp;</label>
           <input
             type="date"
-            class="btn lg:btn-md btn-xs glassbtn btn-outline btn-info"
+            class="btn lg:btn-md btn-xs glassbtn btn-outline btn-success"
             v-model="datepickerTo"
             :min="datepickerFrom"
           />
         </div>
-
-        <label v-if="weatherForecast.errorWeatherForecast.status == 400">{{
-          weatherForecast.errorWeatherForecast.data
-        }}</label>
-
-        <div class="modal-action">
-          <label
-            class="btn btn-success"
-            for="search-modal"
-            @click="
-              weatherForecast.updateWeatherForecast(
-                searchLocations,
-                weatherDateTime
-              )
-            "
-            >Search</label
-          >
+        <!-- <div class="modal-action">
           <label for="search-modal" class="btn btn-info">Close</label>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -3,16 +3,6 @@
   "functions": {
     "api/index.php": { "runtime": "vercel-php@0.5.3" }
   },
-  "routes": [
-    {
-      "src": "/(css|js)/(.*)",
-      "dest": "/build/assets/$1/$2"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ],
   "headers": [
     {
       "source": "/api/(.*)",
@@ -28,6 +18,12 @@
           "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
         }
       ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.php"
     }
   ],
   "env": {

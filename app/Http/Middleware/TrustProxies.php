@@ -12,7 +12,10 @@ class TrustProxies extends Middleware
      *
      * @var array<int, string>|string|null
      */
-    protected $proxies;
+    protected $proxies = [
+        'https://tempestas.vercel.app/',
+        '76.76.21.142'
+    ];
 
     /**
      * The headers that should be used to detect proxies.

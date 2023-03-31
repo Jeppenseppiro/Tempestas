@@ -17,9 +17,9 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['GET, POST, PUT, DELETE, OPTIONS'],
 
-    'allowed_origins' => ['https://tempestas-git-vercel-build-jeppenseppiro.vercel.app/', 'https://tempestas.vercel.app/'],
+    'allowed_origins' => ['https://tempestas-git-vercel-build-jeppenseppiro.vercel.app/, https://tempestas.vercel.app/'],
 
     'allowed_origins_patterns' => [],
 

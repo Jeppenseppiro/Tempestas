@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/getList', 'api/getDetails/*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://tempestas-git-vercel-build-jeppenseppiro.vercel.app', 'https://tempestas.vercel.app'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
@@ -29,6 +29,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];

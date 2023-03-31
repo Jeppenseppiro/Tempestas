@@ -6,23 +6,19 @@
   "routes": [
     {
       "src": "/build/(.*)",
-      "dest": "/public/build/",
-      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
+      "dest": "/public/build/"
     },
     {
       "src": "/resources/(.*)",
-      "dest": "/public/resources/",
-      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
+      "dest": "/public/resources/"
     },
     {
       "src": "/favicon/(.*)",
-      "dest": "/public/favicon/",
-      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
+      "dest": "/public/favicon/"
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.php",
-      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
+      "dest": "/api/index.php"
     }
   ],
   "env": {

@@ -6,42 +6,23 @@
   "routes": [
     {
       "src": "/build/(.*)",
-      "dest": "/public/build/"
+      "dest": "/public/build/",
+      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     },
     {
       "src": "/resources/(.*)",
-      "dest": "/public/resources/"
+      "dest": "/public/resources/",
+      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     },
     {
       "src": "/favicon/(.*)",
-      "dest": "/public/favicon/"
+      "dest": "/public/favicon/",
+      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     },
     {
       "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Credentials",
-          "value": "true"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-        }
-      ]
+      "dest": "/api/index.php",
+      "methods": ["GET", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     }
   ],
   "env": {

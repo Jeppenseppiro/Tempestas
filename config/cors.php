@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['https://tempestas-git-vercel-build-jeppenseppiro.vercel.app/', 'https://tempestas.vercel.app/'],
 
     'allowed_origins_patterns' => [],
 

@@ -5,8 +5,12 @@
   },
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/build/assets/app-cc139f2e.js"
+      "src": "/(css)",
+      "dest": "/build/assets/$1"
+    },
+    {
+      "src": "/(js)",
+      "dest": "/build/assets/$1"
     },
     {
       "src": "/(.*)",

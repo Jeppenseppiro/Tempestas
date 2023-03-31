@@ -6,15 +6,9 @@ A simple interactive weather **[web application](https://tempestas.vercel.app/)*
 
 Sign up an account on [Visual Crossing](https://www.visualcrossing.com/) to get your API key/token
 
-After acquiring the Weather API key/token, go to the **visualCrossingApi.js** file located on **/resources/js/Shared/** and put your API key/token here:
+After acquiring the Weather API key/token, go to the .env file located on the root of the project and put your API key/token here:
 ```
-const axiosGet = await axios.get(
-    "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" +
-      location +
-      "/" +
-      datetime +
-      "?unitGroup=metric&key=[API_KEY]&contentType=json&iconSet=icons2"
-);
+VITE_WEATHER_API=[PLACE API KEY HERE]
 ```
 
 ## Installation

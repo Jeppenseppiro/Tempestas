@@ -6,6 +6,8 @@ A simple interactive weather **[web application](https://tempestas.vercel.app/)*
 
 Sign up an account on [Visual Crossing](https://www.visualcrossing.com/) to get your API key/token
 
+**NOTE:** After cloning this git repo, rename the .env.example to .env found in the root folder of the project
+
 After acquiring the Weather API key/token, go to the .env file located on the root of the project and put your API key/token here:
 ```
 VITE_WEATHER_API=[PLACE API KEY HERE]
@@ -47,3 +49,5 @@ npm run dev
 - **[Visual Crossing](https://www.visualcrossing.com/)**
 - **[Leaflet](https://leafletjs.com/)**
 - **[Vercel](https://vercel.com/)**
+- **[Tailwind](https://tailwindcss.com/)**
+- **[DaisyUI](https://daisyui.com/)**

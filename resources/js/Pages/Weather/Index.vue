@@ -10,10 +10,11 @@
       >
         <div class="m-auto">
           <label
-            class="btn font-bold text-xl"
+            class="font-bold text-xl btn hover:btn-success"
             for="search-modal"
             v-if="$page.component == 'Weather/Index'"
-            >Search Location</label
+            ><font-awesome-icon icon="fa-solid fa-magnifying-glass-location" />
+            &nbsp;Search Location</label
           >
         </div>
       </div>
@@ -45,8 +46,19 @@
     <div class="modal">
       <div class="modal-box w-11/12 max-w-5xl">
         <label
+          class="btn btn-info btn-sm float-left mb-2 px-4 font-bold text-lg hover:btn-success"
+          @click="
+            weatherForecast.updateWeatherForecast(
+              geolocationCoords,
+              weatherDateTime
+            )
+          "
+          ><font-awesome-icon icon="fa-solid fa-location" />&nbsp;Use
+          Geolocation</label
+        >
+        <label
           for="search-modal"
-          class="btn btn-info btn-sm float-right ml-2 mb-2 px-4 font-bold text-xl hover:btn-warning"
+          class="btn btn-warning btn-sm float-right ml-2 mb-2 px-4 font-bold text-xl hover:btn-error"
           >X</label
         >
 
@@ -130,6 +142,16 @@ import CurrentDayForecast from "./components/CurrentDayForecast.vue";
 import DaysForecast from "./components/DaysForecast.vue";
 import HourlyForecast from "./components/HourlyForecast.vue";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  faUserSecret,
+  faMagnifyingGlassLocation,
+  faLocation,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faUserSecret, faMagnifyingGlassLocation, faLocation);
+
 export default {
   layout: Nav,
   props: {},
@@ -138,6 +160,7 @@ export default {
     CurrentDayForecast,
     DaysForecast,
     HourlyForecast,
+    FontAwesomeIcon,
   },
   data() {
     return {
@@ -163,6 +186,21 @@ export default {
       }
       return weatherDateTime;
     },
+    geolocationCoords() {
+      navigator.geolocation.watchPosition(success, error);
+
+      function success(position) {
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+
+        return `${latitude}, ${longitude}`;
+      }
+
+      function error(err) {
+        return alert(err);
+      }
+    },
   },
+  methods: {},
 };
 </script>

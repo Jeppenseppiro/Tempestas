@@ -260,14 +260,12 @@ export default {
         scales: {
           x:{
             ticks: {
-              // Include a dollar sign in the ticks
               callback: function(value, index, ticks) {
                 return value + ":00";
               }
             },
           },
           y: {
-            beginAtZero: true,
             display: false,
             
           },
